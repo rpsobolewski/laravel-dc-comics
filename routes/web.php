@@ -19,7 +19,7 @@ use App\Models\Comic;
 */
 
 
-//Route::resource('admin/comics', ComicsController::class);
+
 Route::resource('admin/comics', ComicsController::class);
 
 

@@ -239,7 +239,7 @@ class ComicsTableSeeder extends Seeder
             $NewComic->artists = implode(', ', $comic['artists']);
             $NewComic->writers = implode(', ', $comic['writers']);
 
-            //SAVE THE DATA
+
             $NewComic->save();
         }
     }
