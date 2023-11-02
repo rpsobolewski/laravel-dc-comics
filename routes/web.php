@@ -18,7 +18,7 @@ use App\Models\Comic;
 |
 */
 
-Route::resource('user', PageController::class);
+
 //Route::resource('admin/comics', ComicsController::class);
 Route::resource('admin/comics', ComicsController::class);
 
