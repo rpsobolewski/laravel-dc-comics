@@ -25,9 +25,8 @@ Route::resource('admin/comics', ComicsController::class);
 
 
 Route::get('/', function () {
+    $comics = Comic::all();
+
+    return view('home', ['comics' => $comics]);
     return view('home');
 })->name('home');
-
-Route::get('/comics', function () {
-    return view('comics');
-})->name('comics');

@@ -34,11 +34,17 @@ class ComicsController extends Controller
     {
         $newComic = new Comic();
 
+        if ($request->has('thumb')) {
 
+            $file_path = Storage::put('comics_thumbs', $request->thumb);
+
+
+            $newComic->thumb = $file_path;
+        }
         $newComic->title = $request->title;
         $newComic->price = $request->price;
         $newComic->series = $request->series;
-        $newComic->thumb = $request->thumb;
+
 
 
 
