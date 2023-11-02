@@ -1,8 +1,12 @@
 @extends('layout.app')
 
 @section('content')
-<h1>add</h1>
-<a href="{{route('comics.index')}}">home</a>
+<h1 class="text-center">Add New</h1>
+<div class="text-center">
+
+
+    <a href="{{route('home')}}">home</a>
+</div>
 
 <div class="container-fluid dc-mainContainer">
 

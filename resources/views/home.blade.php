@@ -1,11 +1,15 @@
 @extends('layout.app')
 
 @section('content')
-<h1>home</h1>
-<a href="{{route('comics.create')}}">add new</a>
+<h1 class="text-center">Home</h1>
+<div class="text-center">
 
 
-<h1>List of Comics</h1>
+    <a href="{{route('comics.create')}}">add new</a>
+</div>
+
+
+<h1 class="text-center">List of Comics</h1>
 <div class="container">
     <div class="row">
         @foreach ($comics as $comic)
