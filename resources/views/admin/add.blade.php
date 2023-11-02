@@ -39,6 +39,34 @@
                         <input type="text" class="form-control" name="series" id="series" aria-describedby="helpseries" placeholder="Inserisci la serie del prodotto">
 
                     </div>
+                    <div class="mb-3">
+
+                        <label for="series" class="form-label"><strong>Data vendita</strong></label>
+
+                        <input type="date" class="form-control" name="sale_date" id="sale_date" aria-describedby="helpseries" placeholder="Inserisci la data di vendita">
+
+                    </div>
+                    <div class="mb-3">
+
+                        <label for="series" class="form-label"><strong>Tipologia</strong></label>
+
+                        <input type="text" class="form-control" name="type" id="type" aria-describedby="helpseries" placeholder="Inserisci la tipologia">
+
+                    </div>
+                    <div class="mb-3">
+
+                        <label for="series" class="form-label"><strong>Artisti</strong></label>
+
+                        <input type="text" class="form-control" name="artists" id="artists" aria-describedby="helpseries" placeholder="Inserisci gli artisti">
+
+                    </div>
+                    <div class="mb-3">
+
+                        <label for="series" class="form-label"><strong>Scrittori</strong></label>
+
+                        <input type="text" class="form-control" name="writers" id="writers" aria-describedby="helpseries" placeholder="Inserisci gli scrittori">
+
+                    </div>
 
                     <div class="mb-3">
 
@@ -47,6 +75,7 @@
                         <input type="file" class="form-control" name="thumb" id="thumb" placeholder="Cerca..." aria-describedby="fileHelpThumb">
 
                     </div>
+
 
                     <button type="submit" class="btn btn-success my-3">SAVE</button>
 
