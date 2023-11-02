@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\ComicsController;
 use App\Http\Controllers\User\PageController;
 
 use App\Models\Comic;
@@ -19,11 +19,15 @@ use App\Models\Comic;
 */
 
 Route::resource('user', PageController::class);
-Route::resource('admin', AdminController::class);
+//Route::resource('admin/comics', ComicsController::class);
+Route::resource('admin/comics', ComicsController::class);
+
+
 
 Route::get('/', function () {
     return view('home');
 })->name('home');
+
 Route::get('/comics', function () {
     return view('comics');
 })->name('comics');
