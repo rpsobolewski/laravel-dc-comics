@@ -10,7 +10,7 @@
         <div class="col-8 py-5 ">
 
             <div class="col-2">
-                <a class="btn btn-info mb-5" href="{{ route('comics.index') }}">Back to Dashboard</a>
+                <a class="btn btn-info mb-5" href="{{ route('comics.index') }}">Back</a>
                 @if (str_contains($comic->thumb, 'http'))
                 <td><img class=" img-fluid" style="height: 250px" src="{{ $comic->thumb }}" alt="{{ $comic->title }}">
                 </td>

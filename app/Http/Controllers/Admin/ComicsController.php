@@ -110,8 +110,19 @@ class ComicsController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Comic $comic)
     {
-        //
+        // CONTROLLA SE L'ISTANZA HA UN FILE DI ANTEPRIMA. SE SI LO ELIMINA DAL filesystem
+        if (!is_null($comic->thumb)) {
+            Storage::delete($comic->thumb);
+        }
+
+        // ELIMINA IL RECORD DAL DATABASE
+        $comic->delete();
+
+        // RIDIRIGE AD UNA ROTTA DESIDERATA CON UN MESSAGGIO
+        $comics = Comic::all();
+
+        return view('admin.index', ['comics' => $comics])->with('message', 'Well Done, Element Deleted Succeffully');
     }
 }
