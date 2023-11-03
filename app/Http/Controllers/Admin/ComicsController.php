@@ -36,7 +36,7 @@ class ComicsController extends Controller
 
         if ($request->has('thumb')) {
 
-            $file_path = Storage::put('comics_thumbs', $request->thumb);
+            $file_path = Storage::put('comicsImages', $request->thumb);
 
 
             $newComic->thumb = $file_path;
@@ -96,11 +96,11 @@ class ComicsController extends Controller
 
 
             $newCover = $request->thumb;
-            $path = Storage::put('comics_thumbs', $newCover);
+            $path = Storage::put('comicsImages', $newCover);
             $data['thumb'] = $path;
         }
 
-        // AGGIORNA L'ENTITA' CON I VALORI DI $data
+
         $comic->update($data);
         $comics = Comic::all();
 
@@ -112,15 +112,15 @@ class ComicsController extends Controller
      */
     public function destroy(Comic $comic)
     {
-        // CONTROLLA SE L'ISTANZA HA UN FILE DI ANTEPRIMA. SE SI LO ELIMINA DAL filesystem
+
         if (!is_null($comic->thumb)) {
             Storage::delete($comic->thumb);
         }
 
-        // ELIMINA IL RECORD DAL DATABASE
+
         $comic->delete();
 
-        // RIDIRIGE AD UNA ROTTA DESIDERATA CON UN MESSAGGIO
+
         $comics = Comic::all();
 
         return view('admin.index', ['comics' => $comics])->with('message', 'Well Done, Element Deleted Succeffully');
