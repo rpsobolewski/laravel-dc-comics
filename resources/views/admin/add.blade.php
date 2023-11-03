@@ -5,7 +5,7 @@
 <div class="text-center">
 
 
-    <a href="{{route('comics.index')}}">Back</a>
+    <a class="btn btn-info" href="{{route('comics.index')}}">Back</a>
 </div>
 
 <div class="container-fluid dc-mainContainer">

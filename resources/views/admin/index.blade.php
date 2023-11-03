@@ -5,8 +5,8 @@
 <div class="text-center">
 
 
-    <a href="{{route('comics.create')}}">Add new</a>
-    <a href="{{route('home')}}">Home</a>
+    <a class="btn btn-success" href="{{route('comics.create')}}">Add new</a>
+    <a class="btn btn-primary" href="{{route('home')}}">Home</a>
 
 </div>
 
@@ -30,7 +30,9 @@
                     <h5 class="card-title">{{ $comic->title }}</h5>
                     <p class="card-text">ID: {{ $comic->id }}</p>
                     <div class="btn-group">
-                        <a href="{{ route('comics.edit', $comic->id) }}" class="btn btn-primary">Edit</a>
+                        <a href="{{ route('comics.show', $comic->id) }}" class="btn btn-info mx-1">Details</a>
+
+                        <a href="{{ route('comics.edit', $comic->id) }}" class="btn btn-warning mx-1">Edit</a>
                         <form action="{{ route('comics.destroy', $comic->id) }}" method="POST" class="d-inline">
                             @csrf
                             @method('DELETE')

@@ -5,7 +5,7 @@
 <div class="text-center">
 
 
-    <a href="{{route('comics.index')}}">Admin</a>
+    <a class="btn btn-info" href="{{route('comics.index')}}">Admin</a>
 </div>
 
 

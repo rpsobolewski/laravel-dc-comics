@@ -6,7 +6,7 @@
     <div class="row justify-content-center">
 
         <div class="col-8 py-5">
-            <a href="{{route('comics.index')}}">Back</a>
+            <a class="btn btn-primary" href="{{route('comics.index')}}">Back</a>
 
 
             <h1 class="text-center">Edit ID: {{ $comic->id }} - {{ $comic->title }} </h1>
