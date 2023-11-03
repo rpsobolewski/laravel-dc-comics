@@ -60,7 +60,9 @@ class ComicsController extends Controller
 
         $newComic->save();
 
-        return view('admin.index');
+        $comics = Comic::all();
+
+        return view('admin.index', ['comics' => $comics]);
     }
 
     /**
