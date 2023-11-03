@@ -16,7 +16,7 @@ class ComicsController extends Controller
     {
         $comics = Comic::all();
 
-        return view('home', ['comics' => $comics]);
+        return view('admin.index', ['comics' => $comics]);
     }
 
     /**
@@ -60,7 +60,7 @@ class ComicsController extends Controller
 
         $newComic->save();
 
-        return view('admin.add');
+        return view('admin.index');
     }
 
     /**
@@ -74,17 +74,35 @@ class ComicsController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Comic $comic)
     {
-        //
+        return view('admin.edit', compact('comic'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Comic $comic)
     {
-        //
+        $data = $request->all();
+
+
+        if ($request->has('thumb') && $comic->thumb) {
+
+
+            Storage::delete($comic->thumb);
+
+
+            $newCover = $request->thumb;
+            $path = Storage::put('comics_thumbs', $newCover);
+            $data['thumb'] = $path;
+        }
+
+        // AGGIORNA L'ENTITA' CON I VALORI DI $data
+        $comic->update($data);
+        $comics = Comic::all();
+
+        return view('admin.index', ['comics' => $comics]);
     }
 
     /**

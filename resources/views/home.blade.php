@@ -5,7 +5,7 @@
 <div class="text-center">
 
 
-    <a href="{{route('comics.create')}}">add new</a>
+    <a href="{{route('comics.index')}}">Admin</a>
 </div>
 
 
@@ -13,7 +13,7 @@
 <div class="container">
     <div class="row">
         @foreach ($comics as $comic)
-        <div class="col-md-4">
+        <div class="col-md-4 my-2">
             <div class="card mb-3 h-100">
                 <img src="{{ $comic->thumb }}" class="card-img-top" alt="{{ $comic->title}}" style="object-fit: cover; height: 600px;">
                 <div class="card-body">
