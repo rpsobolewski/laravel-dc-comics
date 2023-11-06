@@ -8,6 +8,16 @@
     <a class="btn btn-info" href="{{route('comics.index')}}">Back</a>
 </div>
 
+
+@if ($errors->any())
+<div class="alert alert-danger container">
+    <ul>
+        @foreach ($errors->all() as $error)
+        <li>{{ $error }}</li>
+        @endforeach
+    </ul>
+</div>
+@endif
 <div class="container-fluid dc-mainContainer">
 
     <div class="row justify-content-center">

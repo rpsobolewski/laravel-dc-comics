@@ -32,35 +32,41 @@ class ComicsController extends Controller
      */
     public function store(Request $request)
     {
-        $newComic = new Comic();
-
-        if ($request->has('thumb')) {
-
-            $file_path = Storage::put('comicsImages', $request->thumb);
-
-
-            $newComic->thumb = $file_path;
-        }
-        $newComic->title = $request->title;
-        $newComic->price = $request->price;
-        $newComic->series = $request->series;
-        $newComic->sale_date = $request->sale_date;
-        $newComic->type = $request->type;
-        $newComic->artists = $request->artists;
-        $newComic->writers = $request->writers;
+        $validated = $request->validate(
+            [
 
 
 
 
 
+                'title' => 'required|bail|min:3|max:100',
+                'thumb' => 'nullable|image|max:150',
+                'price' => 'required|min:1|max:10',
+                'series' => 'nullable|min:3|max:100',
+                'sale_date' => 'nullable|date',
+                'type' => 'nullable|min:3|max:100',
+                'artists' => 'nullable|min:3|max:100',
+                'writers' => 'nullable|min:3|max:100',
+
+
+
+            ]
+        );
+
+
+        $newComic = Comic::create($validated);
 
 
 
 
 
-        $newComic->save();
+
+
+
+
 
         $comics = Comic::all();
+
 
         return view('admin.index', ['comics' => $comics]);
     }

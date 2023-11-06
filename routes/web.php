@@ -28,5 +28,4 @@ Route::get('/', function () {
     $comics = Comic::all();
 
     return view('home', ['comics' => $comics]);
-    return view('home');
 })->name('home');
